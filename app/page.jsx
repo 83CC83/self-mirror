@@ -432,7 +432,7 @@ export default function SelfMirror() {
             <div style={{ width: 44, height: 44, borderRadius: "50%", border: "2px solid #e5e7eb", borderTopColor: "#1a1a1a", animation: "spin 1s linear infinite" }} />
             <div style={{ textAlign: "center" }}>
               <div style={{ fontSize: 16, color: "#1a1a1a", fontWeight: 600, marginBottom: 8, fontFamily: "Noto Sans TC, sans-serif" }}>正在照鏡子...</div>
-              <div style={{ fontSize: 13, color: "#9ca3af", fontFamily: "Noto Sans TC, sans-serif", animation: "pulse 2s ease-in-out infinite" }}>比對你說的你，和你選的你</div>
+              <div style={{ fontSize: 13, color: "#9ca3af", fontFamily: "Noto Sans TC, sans-serif", animation: "pulse 2s ease-in-out infinite" }}>比對你認為的你，和你選擇顯示的你</div>
             </div>
           </div>
         )}
