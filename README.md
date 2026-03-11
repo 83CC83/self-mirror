@@ -7,7 +7,7 @@
 ## 上線步驟
 
 ### 1. 申請 Anthropic API Key
-前往 https://console.anthropic.com 註冊，新帳號有 $5 免費額度。
+前往 https://console.anthropic.com 註冊。
 
 ### 2. 本地測試（可略過）
 ```bash
@@ -39,4 +39,3 @@ git push -u origin main
 
 ## 費用估算
 - 每次分析約 $0.002-0.003 USD
-- $5 免費額度 ≈ 1500-2000 次
