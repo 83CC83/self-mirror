@@ -123,7 +123,7 @@ const LIFE_QUESTIONS = [
       { label: "直接問他怎麼了", value: "A" },
       { label: "繼續聊，假裝沒注意到", value: "B" },
       { label: "開始在腦子裡回放剛才說了什麼", value: "C" },
-      { label: "回放了一遍，然後把自己縮回去，減少主動傳訊息，等他先開口", value: "D" },
+      { label: "回放了一遍，然後把自己縮回去，減少主動傳訊，等他先開口", value: "D" },
     ],
   },
 ];
@@ -173,30 +173,6 @@ const LIFE_LABELS = [
   { id: "l_selfaware", text: "我很了解自己" },
 ];
 
-const SYSTEM_PROMPT = `你是一個溫柔但一針見血的心理洞察師，專門分析人的「自我認知落差」。
-
-用戶會提供：
-1. 他們勾選的自我標籤（他們認為自己是這樣的人）
-2. 6 道情境題的選擇結果
-
-你的任務：找出他們「認為的自己」和「選擇顯示的自己」之間的落差，溫柔但精準地說出來。
-要從具體的選擇中找出證據，不要泛泛而談。
-
-輸出格式（嚴格用JSON，不要加任何markdown或說明文字）：
-{
-  "headline": "你以為自己是＿＿，但你其實是＿＿（一句話，要有點戳心但不刻薄，20字以內）",
-  "gaps": [
-    "落差觀察1（溫柔但具體，從選擇中找證據，30-40字）",
-    "落差觀察2（溫柔但具體，30-40字）",
-    "落差觀察3（溫柔但具體，30-40字）"
-  ],
-  "core_pattern": "你可能沒意識到的核心模式（一句話點出深層行為模式，不是評判，是觀察，25字以內）",
-  "gentle_note": "最後一句溫柔的話，像好朋友說的那種（15字以內）"
-}
-
-語言：繁體中文
-風格：像一個很懂你的朋友，不是心理醫生，不說教，不用「您」`;
-
 export default function SelfMirror() {
   const [step, setStep] = useState("intro"); // intro | context | labels | questions | loading | result
   const [context, setContext] = useState(null); // "work" | "life"
@@ -236,39 +212,24 @@ export default function SelfMirror() {
   };
 
   useEffect(() => {
-    if (step === "loading") {
-      analyze();
-    }
-  }, [step]);
-
-  const analyze = async () => {
+    if (step !== "loading") return;
+    const runAnalyze = async () => {
     const labelTexts = labels.filter(l => selectedLabels.includes(l.id)).map(l => l.text);
-    const fullSummary = questions.map(q => {
-      const opt = q.options.find(o => o.value === answers[q.id]);
-      return `情境：${q.scenario}\n→ 選了「${opt?.label || "未選"}」`;
-    }).join("\n\n");
-
-    const contextLabel = context === "work" ? "工作" : "生活";
 
     try {
-      const res = await fetch("https://api.anthropic.com/v1/messages", {
+      const res = await fetch("/api/analyze", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          model: "claude-sonnet-4-20250514",
-          max_tokens: 1000,
-          system: SYSTEM_PROMPT,
-          messages: [{
-            role: "user",
-            content: `【測驗情境】${contextLabel}\n\n【我認為我是這樣的人】\n${labelTexts.join("、")}\n\n【情境題選擇】\n${fullSummary}`
-          }]
+          context,
+          selectedLabelTexts: labelTexts,
+          answers,
+          questions,
         })
       });
       const data = await res.json();
-      const text = data.content?.[0]?.text || "";
-      const clean = text.replace(/```json|```/g, "").trim();
-      const parsed = JSON.parse(clean);
-      setResult(parsed);
+      if (data.error) throw new Error(data.error);
+      setResult(data.result);
       setStep("result");
     } catch (e) {
       setResult({
@@ -283,7 +244,10 @@ export default function SelfMirror() {
       });
       setStep("result");
     }
-  };
+    };
+    runAnalyze();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [step]);
 
   const reset = () => {
     setStep("intro");

@@ -1,13 +1,14 @@
 export async function POST(request) {
-  const { selfDesc, answers, questions } = await request.json();
+  const { context, selectedLabelTexts, answers, questions } = await request.json();
 
   const SYSTEM_PROMPT = `你是一個溫柔但一針見血的心理洞察師，專門分析人的「自我認知落差」。
 
 用戶會提供：
-1. 他們如何描述自己（自我描述）
-2. 8 道情境題的選擇結果
+1. 他們勾選的自我標籤（他們認為自己是這樣的人）
+2. 6 道情境題的選擇結果
 
-你的任務：找出他們「說的自己」和「選擇顯示的自己」之間的落差，溫柔但精準地說出來。
+你的任務：找出他們「認為的自己」和「選擇顯示的自己」之間的落差，溫柔但精準地說出來。
+要從具體的選擇中找出證據，不要泛泛而談。
 
 輸出格式（嚴格用JSON，不要加任何markdown或說明文字）：
 {
@@ -24,15 +25,17 @@ export async function POST(request) {
 語言：繁體中文
 風格：像一個很懂你的朋友，不是心理醫生，不說教，不用「您」`;
 
+  const contextLabel = context === "work" ? "工作" : "生活";
+
   const fullSummary = questions.map(q => {
     const opt = q.options.find(o => o.value === answers[q.id]);
-    return `Q${q.id}(${q.category})：${q.scenario}\n→ 選了「${opt?.label || "未選"}」`;
+    return `情境：${q.scenario}\n→ 選了「${opt?.label || "未選"}」`;
   }).join("\n\n");
 
-  const userContent = `【關於這個人】
-朋友眼中的他：${selfDesc.q1}
-最近的驕傲時刻：${selfDesc.q2}
-處理不舒服的方式：${selfDesc.q3}
+  const userContent = `【測驗情境】${contextLabel}
+
+【我認為我是這樣的人】
+${selectedLabelTexts.join("、")}
 
 【情境題選擇】
 ${fullSummary}`;
