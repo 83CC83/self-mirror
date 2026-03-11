@@ -132,47 +132,47 @@ const LIFE_QUESTIONS = [
 
 // ── 自我標籤 ──
 const WORK_LABELS = [
-  { id: "w_direct",   text: "我說話不拐彎抹角" },
-  { id: "w_calm",     text: "壓力下我很冷靜" },
-  { id: "w_plan",     text: "我是計劃型的人" },
-  { id: "w_flex",     text: "我適應力強" },
-  { id: "w_lead",     text: "我習慣主導事情" },
-  { id: "w_detail",   text: "我很注重細節" },
-  { id: "w_border",   text: "我的工作界線很清楚" },
-  { id: "w_collab",   text: "我重視團隊和諧" },
-  { id: "w_ambition", text: "我對自己要求很高" },
-  { id: "w_feedback", text: "我不怕給別人反饋" },
-  { id: "w_logic",    text: "我做決定靠理性分析" },
-  { id: "w_honest",   text: "我有話直說" },
-  { id: "w_indep",    text: "我喜歡獨立作業" },
-  { id: "w_fair",     text: "我很在意公平" },
-  { id: "w_protect",  text: "我不輕易讓人看見壓力" },
-  { id: "w_selfcrit", text: "我很難原諒自己的失誤" },
-  { id: "w_trust",    text: "我不太依賴別人給意見" },
-  { id: "w_read",     text: "我很會察言觀色" },
-  { id: "w_carry",    text: "我習慣扛下來再說" },
+  { id: "w_direct", hint: "有意見直接說，不繞圈子",   text: "我說話不拐彎抹角" },
+  { id: "w_calm", hint: "出狀況時反而更清醒",     text: "壓力下我很冷靜" },
+  { id: "w_plan", hint: "沒有計劃就很難開始",     text: "我是計劃型的人" },
+  { id: "w_flex", hint: "臨時變動不太會影響我",     text: "我適應力強" },
+  { id: "w_lead", hint: "自然會去掌握方向和節奏",     text: "我習慣主導事情" },
+  { id: "w_detail", hint: "細節出錯會讓我很不舒服",   text: "我很注重細節" },
+  { id: "w_border", hint: "下班就是下班",   text: "我的工作界線很清楚" },
+  { id: "w_collab", hint: "氣氛不好比事情沒做好更讓我在意",   text: "我重視團隊和諧" },
+  { id: "w_ambition", hint: "做到八十分還是覺得不夠", text: "我對自己要求很高" },
+  { id: "w_feedback", hint: "覺得有問題會直接說", text: "我不怕給別人反饋" },
+  { id: "w_logic", hint: "用感覺做決定會讓我不安",    text: "我做決定靠理性分析" },
+  { id: "w_honest", hint: "不太會為了讓人好過而說場面話",   text: "我有話直說" },
+  { id: "w_indep", hint: "自己做比較放心",    text: "我喜歡獨立作業" },
+  { id: "w_fair", hint: "誰多做誰少做我都看在眼裡",     text: "我很在意公平" },
+  { id: "w_protect", hint: "就算很趕也不會表現出來",  text: "我不輕易讓人看見壓力" },
+  { id: "w_selfcrit", hint: "出錯之後會一直想", text: "我很難原諒自己的失誤" },
+  { id: "w_trust", hint: "做決定習慣自己判斷",    text: "我不太依賴別人給意見" },
+  { id: "w_read", hint: "會注意到別人沒說出口的部分",     text: "我很會察言觀色" },
+  { id: "w_carry", hint: "問題先自己消化，不太找人幫",    text: "我習慣扛下來再說" },
 ];
 
 const LIFE_LABELS = [
-  { id: "l_easygoing", text: "我不太會拒絕別人" },
-  { id: "l_express",   text: "我直接表達情緒" },
-  { id: "l_indep",     text: "我很獨立" },
-  { id: "l_empath",    text: "我很能感受別人的情緒" },
-  { id: "l_social",    text: "我喜歡社交" },
-  { id: "l_conflict",  text: "我不怕衝突" },
-  { id: "l_present",   text: "我活在當下" },
-  { id: "l_care",      text: "我很在意別人感受" },
-  { id: "l_border",    text: "我的界線很明確" },
-  { id: "l_recover",   text: "我復原力很強" },
-  { id: "l_alone",     text: "我很需要獨處時間" },
-  { id: "l_nodrama",   text: "我不愛製造麻煩" },
-  { id: "l_honest",    text: "我對朋友很坦誠" },
-  { id: "l_lowkey",    text: "我不需要被關注" },
-  { id: "l_loyal",     text: "我對重要的人很忠誠" },
-  { id: "l_patient",   text: "我很有耐心" },
-  { id: "l_nothink",   text: "我不會想太多" },
-  { id: "l_adapt",     text: "我很能接受變化" },
-  { id: "l_selfaware", text: "我很了解自己" },
+  { id: "l_easygoing", hint: "答應了之後才後悔", text: "我不太會拒絕別人" },
+  { id: "l_express", hint: "不舒服不太會憋著",   text: "我直接表達情緒" },
+  { id: "l_indep", hint: "不太需要別人確認我的決定",     text: "我很獨立" },
+  { id: "l_empath", hint: "對方心情不好我馬上感覺到",    text: "我很能感受別人的情緒" },
+  { id: "l_social", hint: "跟人相處讓我有能量",    text: "我喜歡社交" },
+  { id: "l_conflict", hint: "有問題寧願攤開來說",  text: "我不怕衝突" },
+  { id: "l_present", hint: "不太會為還沒發生的事擔心",   text: "我活在當下" },
+  { id: "l_care", hint: "說話前會先想對方聽了會怎樣",      text: "我很在意別人感受" },
+  { id: "l_border", hint: "什麼可以什麼不行，我很清楚",    text: "我的界線很明確" },
+  { id: "l_recover", hint: "低潮不會持續太久",   text: "我復原力很強" },
+  { id: "l_alone", hint: "社交完需要一個人待著才能恢復",     text: "我很需要獨處時間" },
+  { id: "l_lowmaint",  hint: "不聯絡一陣子也不會影響我們的關係", text: "我不太需要頻繁聯絡" },
+  { id: "l_understood", hint: "被誤解比被忽略更讓我難受",        text: "我很需要被理解" },
+  { id: "l_lowkey", hint: "沒人注意到我也不會在意",    text: "我不需要被關注" },
+  { id: "l_loyal", hint: "在乎的人我會一直在",     text: "我對重要的人很忠誠" },
+  { id: "l_patient", hint: "等待和重複不太會讓我煩",   text: "我很有耐心" },
+  { id: "l_nothink", hint: "事情過了就過了，不太回頭想",   text: "我不會想太多" },
+  { id: "l_adapt", hint: "計劃改掉不會特別影響我",     text: "我很能接受變化" },
+  { id: "l_selfaware", hint: "知道自己為什麼會有這些反應", text: "我很了解自己" },
 ];
 
 export default function SelfMirror() {
@@ -216,36 +216,35 @@ export default function SelfMirror() {
   useEffect(() => {
     if (step !== "loading") return;
     const runAnalyze = async () => {
-    const labelTexts = labels.filter(l => selectedLabels.includes(l.id)).map(l => l.text);
-
-    try {
-      const res = await fetch("/api/analyze", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          context,
-          selectedLabelTexts: labelTexts,
-          answers,
-          questions,
-        })
-      });
-      const data = await res.json();
-      if (data.error) throw new Error(data.error);
-      setResult(data.result);
-      setStep("result");
-    } catch (e) {
-      setResult({
-        headline: "你以為自己很好懂，但你其實很有層次",
-        gaps: [
-          "你在面對衝突時傾向保持表面和諧，但內心其實記得每一次的不舒服。",
-          "你說自己不在意別人的看法，但你的選擇顯示你很少在公開場合表達異議。",
-          "你習慣把決策權讓給別人，但那不是你不在意，而是你太在意結果了。"
-        ],
-        core_pattern: "你用「彈性」保護自己不受傷，但有時也擋住了真正的連結",
-        gentle_note: "你比你以為的更需要被看見 🌿"
-      });
-      setStep("result");
-    }
+      const labelTexts = labels.filter(l => selectedLabels.includes(l.id)).map(l => l.text);
+      try {
+        const res = await fetch("/api/analyze", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            context,
+            selectedLabelTexts: labelTexts,
+            answers,
+            questions,
+          })
+        });
+        const data = await res.json();
+        if (data.error) throw new Error(data.error);
+        setResult(data.result);
+        setStep("result");
+      } catch (e) {
+        setResult({
+          headline: "你以為自己很好懂，但你其實很有層次",
+          gaps: [
+            "你在面對衝突時傾向保持表面和諧，但內心其實記得每一次的不舒服。",
+            "你說自己不在意別人的看法，但你的選擇顯示你很少在公開場合表達異議。",
+            "你習慣把決策權讓給別人，但那不是你不在意，而是你太在意結果了。"
+          ],
+          core_pattern: "你用「彈性」保護自己不受傷，但有時也擋住了真正的連結",
+          gentle_note: "你比你以為的更需要被看見 🌿"
+        });
+        setStep("result");
+      }
     };
     runAnalyze();
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -325,7 +324,7 @@ export default function SelfMirror() {
                 { value: "work", emoji: "💼", title: "工作中的我", desc: "面對主管、同事、任務、壓力時的選擇" },
                 { value: "life", emoji: "🌿", title: "生活中的我", desc: "面對朋友、關係、自由時間時的選擇" },
               ].map(opt => (
-                <button key={opt.value} className="ctx-btn" onClick={() => { setContext(opt.value); setStep("labels"); }} style={{
+                <button key={opt.value} className="ctx-btn" onClick={() => { setContext(opt.value); setSelectedLabels([]); setAnswers({}); setCurrentQ(0); setCurrentSelection(null); setResult(null); setStep("labels"); }} style={{
                   padding: "22px 24px", background: "#fff",
                   border: "1.5px solid #e5e7eb", borderRadius: 14,
                   textAlign: "left", cursor: "pointer",
@@ -346,20 +345,25 @@ export default function SelfMirror() {
             <div style={{ fontSize: 11, letterSpacing: 4, color: "#9ca3af", fontFamily: "Noto Sans TC, sans-serif", marginBottom: 32 }}>STEP 2 / 3</div>
             <h2 style={{ fontSize: 22, fontWeight: 700, color: "#1a1a1a", margin: "0 0 8px" }}>你覺得自己是怎樣的人？</h2>
             <p style={{ fontSize: 13, color: "#9ca3af", lineHeight: 1.8, fontFamily: "Noto Sans TC, sans-serif", margin: "0 0 28px" }}>
-              選 1–5 個你認同的標籤，憑第一直覺。
+              選 1–5 個，憑直覺。選你真實的樣子，不是你希望自己是的樣子。
             </p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginBottom: 36 }}>
               {labels.map(l => {
                 const active = selectedLabels.includes(l.id);
                 return (
                   <button key={l.id} className="label-chip" onClick={() => toggleLabel(l.id)} style={{
-                    padding: "9px 16px",
+                    padding: "10px 16px",
                     background: active ? "#1a1a1a" : "#fff",
                     border: `1.5px solid ${active ? "#1a1a1a" : "#e5e7eb"}`,
-                    borderRadius: 50, fontSize: 13,
+                    borderRadius: 14, fontSize: 13,
                     color: active ? "#faf7f2" : "#374151",
                     fontFamily: "Noto Sans TC, sans-serif",
-                  }}>{l.text}</button>
+                    textAlign: "left", lineHeight: 1.4,
+                    display: "flex", flexDirection: "column", gap: 2,
+                  }}>
+                    <span>{l.text}</span>
+                    {l.hint && <span style={{ fontSize: 11, color: active ? "#d1d5db" : "#9ca3af", fontWeight: 400 }}>{l.hint}</span>}
+                  </button>
                 );
               })}
             </div>
