@@ -280,10 +280,13 @@ export default function SelfMirror() {
         .opt-btn:hover { background: #f3f4f6 !important; }
         .label-chip { transition: all 0.15s ease; cursor: pointer; user-select: none; }
         .label-chip:hover { border-color: #1a1a1a !important; }
+        .label-chip:focus { outline: none; }
         .next-btn { transition: all 0.18s ease; cursor: pointer; }
         .next-btn:hover { opacity: 0.85; }
+        .next-btn:focus { outline: none; }
         .ctx-btn { transition: all 0.2s ease; cursor: pointer; }
         .ctx-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.08); }
+        .ctx-btn:focus { outline: none; }
       `}</style>
 
       <div style={{ width: "100%", maxWidth: 520, paddingTop: 48, paddingBottom: 60 }}>
