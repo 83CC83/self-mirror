@@ -213,7 +213,11 @@ export default function SelfMirror() {
   };
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "instant" });
+    if (typeof window !== "undefined") {
+      window.history.scrollRestoration = "manual";
+      window.scrollTo({ top: 0, behavior: "instant" });
+      if (document.activeElement) document.activeElement.blur();
+    }
   }, [step]);
 
   useEffect(() => {
